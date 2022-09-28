@@ -1,5 +1,6 @@
 from sidesched import Side, Event, Scheduler
 from typing import cast, Tuple, List
+import pandas as pd
 
 names = ["earlsdon", "saddleworth", "cinewood", "SB&MRTD", "jockey", "shakespere"]
 spots = ["royal oak", "broomfeild", "chestnut"]
@@ -9,14 +10,6 @@ sides = [Side(name, size) for name, size in zip(names, sizes)]
 event = Event("bromyard", spots, sides, 3)
 
 schedule = Scheduler(event)
-
-# print(schedule._prioritise_sides())
-
-metrics = {"sides": [1,2,3,4], "spots": [5,6,7,8]}
-print(
-    [
-        sides + spots 
-        for sides, spots 
-        in zip(metrics["sides"], metrics["spots"])
-    ]
-)
+timeslot = schedule._fetch_timeslot()
+out = schedule._schedule_next()
+print(out)

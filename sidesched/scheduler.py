@@ -190,35 +190,17 @@ class Scheduler:
     def _schedule_next(self) -> None:
         timeslot = self._fetch_timeslot()
         prio_sides = self._prioritise_sides()
+        spots = self.event.spots
 
         while prio_sides:
             side = prio_sides.pop(0)
+            discounted = set()
+            selected = spots
             for feature in self.feature_priority:
-                print(f"feature: {feature}", end="\t")
                 scores = self._feature_func_dict[feature](
                     timeslot, side, self.side_decider
                 )
-                print(f"scores: {scores}\n")
 
-
-# def _shedule_next(self) -> None:
-
-#     timeslot = {spot: [] for spot in self.spots}
-#     fill = {spot: 0 for spot in self.spots}
-#     unassigned = rand.sample(self.sides.copy(), k=len(self.sides))
-
-#     while unassigned:
-#         side = unassigned.pop()
-
-#         allocated = rand.choice([
-#             spot for i, spot in enumerate(timeslot)
-#             if fill[spot] == min(fill.values())
-#         ])
-
-#     # Extra 1 accounts for lonely teams when there's a low team count.
-#     fill[allocated] += side.size + 1
-#     timeslot[allocated].append(side)
-
-#     self.shedule = [timeslot]
-#     self._initalise_freqs()
-#     self._update_freqs(timeslot)
+                # discounted.update(spot for spot, val in scores.items() if val != min(scores.values()))
+                # if len(discounted) == len(spots):
+                #     discounted = []
