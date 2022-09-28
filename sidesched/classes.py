@@ -47,7 +47,7 @@ class Event:
             columns=self.spots
         )
 
-        self.schedule = [
+        self.timetable = [
             {spot: [] for spot in self.spots} 
-            for slot in range(slots)
+            for _ in range(slots)
         ]
