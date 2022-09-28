@@ -51,3 +51,6 @@ class Event:
             {spot: [] for spot in self.spots} 
             for _ in range(slots)
         ]
+    
+    def get_timeslot(self, time: int) -> Dict[str, List]:
+        return self.timetable[time]
