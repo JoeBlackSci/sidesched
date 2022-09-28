@@ -2,32 +2,30 @@ from typing import List
 
 from sidesched.classes import Side, Event
 
-names: List[str] = ["bbb", "aaa"]
-sizes: List[int] = [1, 2]
-spots: List[str] = ["BBB", "AAA"]
-
-side1: Side = Side(names[0], size=sizes[0])
-side2: Side = Side(names[1], size=sizes[1])
+names: List[str] = ["bb", "aa", "ab"]
+sizes: List[int] = [1, 2, 1]
+spots: List[str] = ["BB", "AA", "AB"]
+sides: List[Side] = [Side(name, size) for name, size in zip(names, sizes)]
 
 event: Event = Event(
     "event_name",
-    1,
     spots=spots,
-    sides=[side1, side2]
+    sides=sides,
+    slots=3
 )
 
 class TestSide:
     def test_name(self) -> None:
-        assert side1.name == "bbb"
+        assert sides[0].name == "bb"
     
     def test_size_1(self) -> None:
-        assert side1.size == 1
+        assert sides[0].size == 1
     
     def test_size_2(self) -> None:
-        assert side2.size == 2
+        assert sides[1].size == 2
         
     def test_sorting(self) -> None: 
-        assert sorted([side1, side2]) == [side2, side1]
+        assert sorted(sides) == [sides[1], sides,[2], sides[0]]
 
 class TestEvent:
     
