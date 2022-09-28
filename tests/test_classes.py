@@ -30,15 +30,7 @@ class TestSide:
 class TestEvent:
     
     def test_side_order(self) -> None:
-        assert event.sides[0].name < event.sides[1].name  # type: ignore
+        assert event.sides == [sides[1], sides,[2], sides[0]]
         
-    def test_add_spot(self) -> None:
-        event.add_spot("BBA") 
-        assert event.spots == ["AAA", "BBA", "BBB"]
-    
-    def test_add_side(self) -> None:  
-        event.add_side(Side("bba"))
-        side_names = [side.name for side in event.sides]
-        assert side_names == ["aaa", "bba", "bbb"]
         
         
