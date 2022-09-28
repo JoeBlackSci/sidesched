@@ -47,7 +47,7 @@ class Event:
             columns=self.spots
         )
 
-        self.shedule = [
+        self.schedule = [
             {spot: [] for spot in self.spots} 
             for slot in range(slots)
         ]
