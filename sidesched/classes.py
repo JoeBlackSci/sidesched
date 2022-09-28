@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
-from typing import Optional, List, Dict
-from bisect import insort
+from typing import List, Dict
 import pandas as pd
+import numpy as np
 
 
 @dataclass(frozen=True, order=True)
@@ -16,43 +16,38 @@ class Event:
     """Festival dance program."""
     name: str
     slots: int = 1
-    spots: Optional[List[str]] = field(default_factory=list)
-    sides: Optional[List[Side]] = field(default_factory=list)
-    freq_side: Optional[pd.DataFrame] = field(default_factory=pd.DataFrame)
-    freq_spot: Optional[pd.DataFrame] = field(default_factory=pd.DataFrame)
-    shedule: Optional[List[Dict[str, List[Side]]]] = field(default_factory=list)
-
+    spots: List[str] = field(default_factory=list)
+    sides: List[Side] = field(default_factory=list)
+    freq_side: pd.DataFrame = field(default_factory=pd.DataFrame)
+    freq_spot: pd.DataFrame = field(default_factory=pd.DataFrame)
+    shedule: List[Dict[str, List[Side]]] = field(default_factory=list)
+    
 
     def __init__(
         self, 
         name: str, 
-        slots: int = 0,
-        spots: Optional[List[str]] = None, 
-        sides: Optional[List[Side]] = None
+        spots: List[str], 
+        sides: List[Side],
+        slots: int
     ) -> None:
 
         self.name = name
         self.slots = slots
+        self.spots = sorted(list(spots))
+        self.sides = sorted(list(sides))
+        
+        self.freq_side = pd.DataFrame(
+            np.zeros([len(self.sides)] * 2, dtype="int"),
+            index=self.sides,
+            columns=self.sides
+        )
+        self.freq_spot = pd.DataFrame(
+            np.zeros((len(self.sides), len(self.spots)), dtype="int"),
+            index=self.sides,
+            columns=self.spots
+        )
 
-        if spots == None:
-            self.spots = []
-        else:
-            self.spots = sorted(list(spots))
-
-        if sides == None:
-            self.sides = []
-        else:
-            self.sides = sorted(list(sides))
-
-        self.freq_side = None
-        self.freq_spot = None
-        self.shedule = None
-    
-
-    def add_spot(self, spot: str) -> None:
-        insort(self.spots, spot)  # type: ignore
-  
-
-    def add_side(self, side: Side) -> None:
-        insort(self.sides, side)  # type: ignore
-
+        self.shedule = [
+            {spot: [] for spot in self.spots} 
+            for slot in range(slots)
+        ]
