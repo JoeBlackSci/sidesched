@@ -124,7 +124,7 @@ class Scheduler:
         Returns
         -------
         Dict[str, Any]
-            _description_
+            Metrics of side frequency of assigned spot and co-assigned sides.
         """
         freq_spot = self.event.freq_spot
         min_spots = freq_spot.to_numpy().min() if from_min else 0
@@ -145,6 +145,24 @@ class Scheduler:
         }
 
     def _prioritise_sides(self, prio: Optional[str] = None) -> List[Side]:
+        """Get current priority of sides 
+
+        Parameters
+        ----------
+        prio : Optional[str], optional
+            Method of determining priority. Options: ['both', 'side', 'spot'], 
+            None defaults to Sheduler.feature_priority, default "both"
+
+        Returns
+        -------
+        List[Side]
+            List of sides in order of assignment priority.
+
+        Raises
+        ------
+        ValueError
+            On invalid priority. 
+        """
         if not prio:
             prio = self.side_priority
 
