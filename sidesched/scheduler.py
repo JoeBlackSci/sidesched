@@ -28,7 +28,23 @@ class Scheduler:
         return self.event.get_timeslot(time)
 
     def _get_load(self, timeslot: Dict[str, List], *_, **__) -> Dict[str, int]:
-        return {spot: len(sides) for spot, sides in timeslot.items()}
+        """Load (occupacy/fullness) of all spots for given timeslot.
+
+        Parameters
+        ----------
+        timeslot : Dict[str, List]
+            Timetable of sides at spots for a given time. {spot: [sides]}.
+
+        Returns
+        -------
+        Dict[str, int]
+            Number of sides currently at spots with. {spot: load}
+        """
+
+        return {
+            spot: sum(side.size for side in sides)  # type: ignore [custom Side]
+            for spot, sides in timeslot.items()
+        }
 
     def _get_freq_spot(
         self, timeslot: Dict[str, List], side: Side, *_, **__
