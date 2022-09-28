@@ -66,19 +66,22 @@ class Scheduler:
         ]
 
         return {
-            "side": self.event.sides,
+            "sides": self.event.sides,
             "spots_at": spots_at,
             "sides_with": sides_with,
         }
 
-    def _prioritise_sides(self) -> List[Side]:
+    def _prioritise_sides(self, prio: Optional[str] = None) -> List[Side]:
+        if not prio:
+            prio = self.side_priority
+        
         metrics = self.side_metrics()
 
-        if self.side_priority == "side":
+        if prio == "side":
             scores = metrics["sides_with"]
-        elif self.side_priority == "spot":
+        elif prio == "spot":
             scores = metrics["spots_at"]
-        elif self.side_priority == "both":
+        elif prio == "both":
             scores = [
                 spots + sides
                 for spots, sides in zip(metrics["spots_at"], metrics["sides_with"])
@@ -90,18 +93,19 @@ class Scheduler:
                     "must be one of 'both', 'spot' or 'side'."
                 )
             )
-        metrics["scores"]
-        return None
+        score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
+        return sorted(score_dict, key=lambda side: score_dict[side], reverse=True)
 
 
+######
+    # def _schedule_next(self) -> None:
+    #     timeslot: Dict[str, List] = self._fetch_timeslot()
+    #     prio_sides = self._prioritise_sides()
+        
+    #     side_decider =
+    #     for feature in self.feature_priority:
+    #     scores = self._feature_func_dict[feature](timeslot, side, self.side_decider)
 #######
-# def _schedule_next(self) -> None:
-#     timeslot: Dict[str, List] = self._fetch_timeslot()
-#     side = self._priority_sides()
-#     side_decider =
-#     for feature in self.feature_priority:
-#         scores = self._feature_func_dict[feature](timeslot, side, self.side_decider)
-########
 
 # def _shedule_next(self) -> None:
 
