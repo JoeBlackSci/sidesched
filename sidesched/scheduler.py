@@ -95,7 +95,7 @@ class Scheduler:
         func : Optional[Callable], optional
             Function used to determine optimal assignment for the side.
             Suggested: [min, sum]. minimal returned value is given priority.
-            None defaults to Sheduler.side_decider.
+            None defaults to Sheduler.side_decider, by default: min.
 
         Returns
         -------
@@ -108,7 +108,7 @@ class Scheduler:
         freq_side = self.event.freq_side
 
         return {
-            spot: func(freq_side.loc[side, c_side] for c_side in sides)  # type: ignore [custom index Side]
+            spot: func(freq_side.loc[side, c_side] for c_side in sides) if sides else 0  # type: ignore [custom index Side]
             for spot, sides in timeslot.items()
         }
 
@@ -145,12 +145,12 @@ class Scheduler:
         }
 
     def _prioritise_sides(self, prio: Optional[str] = None) -> List[Side]:
-        """Get current priority of sides 
+        """Get current priority of sides
 
         Parameters
         ----------
         prio : Optional[str], optional
-            Method of determining priority. Options: ['both', 'side', 'spot'], 
+            Method of determining priority. Options: ['both', 'side', 'spot'],
             None defaults to Sheduler.feature_priority, default "both"
 
         Returns
@@ -161,7 +161,7 @@ class Scheduler:
         Raises
         ------
         ValueError
-            On invalid priority. 
+            On invalid priority.
         """
         if not prio:
             prio = self.side_priority
@@ -187,13 +187,18 @@ class Scheduler:
         score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
         return sorted(score_dict, key=lambda side: score_dict[side], reverse=True)
 
-    # def _schedule_next(self) -> None:
-    #     timeslot = self._fetch_timeslot()
-    #     prio_sides = self._prioritise_sides()
+    def _schedule_next(self) -> None:
+        timeslot = self._fetch_timeslot()
+        prio_sides = self._prioritise_sides()
 
-    #     side_decider =
-    #     for feature in self.feature_priority:
-    #     scores = self._feature_func_dict[feature](timeslot, side, self.side_decider)
+        while prio_sides:
+            side = prio_sides.pop(0)
+            for feature in self.feature_priority:
+                print(f"feature: {feature}", end="\t")
+                scores = self._feature_func_dict[feature](
+                    timeslot, side, self.side_decider
+                )
+                print(f"scores: {scores}\n")
 
 
 # def _shedule_next(self) -> None:
