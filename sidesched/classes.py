@@ -54,4 +54,4 @@ class Event:
   
 
   def add_side(self, side: Side) -> None:
-    insort(self.sides, side  # type: ignore
+    insort(self.sides, side)  # type: ignore
