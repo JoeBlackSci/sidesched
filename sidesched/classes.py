@@ -6,14 +6,14 @@ import numpy as np
 
 @dataclass(frozen=True, order=True)
 class Side:
-    """Morris Side Class."""
+    """Side Class, represents agents."""
     name: str
     size: int = 1
 
 
 @dataclass
 class Event:
-    """Festival dance program."""
+    """Event consisting of sides, spots and timeslots."""
     name: str
     slots: int = 1
     spots: List[str] = field(default_factory=list)
@@ -54,3 +54,42 @@ class Event:
     
     def get_timeslot(self, time: int) -> Dict[str, List]:
         return self.timetable[time]
+    
+    def _update_freq_side(self) -> None:
+        _freq_side: pd.DataFrame = pd.DataFrame(
+            np.zeros([len(self.sides)] * 2, dtype="int"),
+            index=self.sides,
+            columns=self.sides
+        )
+        
+        all_groups = [group for slot in self.timetable for group in slot.values()]
+        
+        for side in self.sides:
+            for grouping in all_groups:
+                for c_side in grouping:
+                    if c_side in grouping and side in grouping:
+                        _freq_side.loc[side, c_side] += 1  # type: ignore [Custom index Side]
+                    
+        self.freq_side = _freq_side
+            
+    
+    def _update_freq_spot(self) -> None:
+        _freq_spot: pd.DataFrame = pd.DataFrame(
+            np.zeros((len(self.sides), len(self.spots)), dtype="int"),
+            index=self.sides,
+            columns=self.spots
+        )
+        
+        for side in self.sides:
+            for timeslot in self.timetable:
+                for spot, sides in timeslot.items():
+                    if side in sides:
+                        _freq_spot.loc[side, spot] += 1  # type: ignore [Custom index Side]
+        
+        self.freq_spot = _freq_spot
+        
+    
+    def update_freqs(self) -> None:
+        """Update frequency metrics."""
+        self._update_freq_side()
+        self._update_freq_spot
