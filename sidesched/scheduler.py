@@ -54,8 +54,9 @@ class Scheduler:
             Number of sides currently at spots with. {spot: load}
         """
 
+        # Extra addition of len accounts for lonely large teams
         return {
-            spot: sum(side.size for side in sides)  # type: ignore [custom Side]
+            spot: sum(side.size for side in sides) + len(sides)  # type: ignore [custom Side]
             for spot, sides in timeslot.items()
         }
 
