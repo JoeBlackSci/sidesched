@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
-from typing import Any, Callable, Dict, List, Optional, Tuple, cast
+from random import choice
+from typing import Any, Callable, Dict, List, Optional, Set, Tuple, cast, Sequence
 
 import pandas as pd
 
@@ -151,7 +152,7 @@ class Scheduler:
         ----------
         prio : Optional[str], optional
             Method of determining priority. Options: ['both', 'side', 'spot'],
-            None defaults to Sheduler.feature_priority, default "both"
+            None defaults to Sheduler.feature_priority, default "both".
 
         Returns
         -------
@@ -186,6 +187,30 @@ class Scheduler:
             )
         score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
         return sorted(score_dict, key=lambda side: score_dict[side], reverse=True)
+
+    def _valid_options(
+        self, timeslot: Dict[str, List], side: Side, options: Sequence
+    ) -> Set[str]:
+        selection = set(options)
+        for feature in self.feature_priority:
+            scores = self._feature_func_dict[feature](timeslot, side, self.side_decider)
+
+            prev_selection = selection.copy()
+
+            for spot, val in scores.items():
+                if val != min(scores.values()):
+                    selection.discard(spot)
+
+            if not selection:
+                selection = prev_selection.copy()
+        
+        return selection
+
+    def _assign_side(
+        self, timeslot: Dict[str, List], side: Side, allocation: str
+    ) -> None:
+        """Assign side to spot at timeslot."""
+        timeslot[allocation].append(side)
 
     def _schedule_next(self) -> None:
         timeslot = self._fetch_timeslot()
