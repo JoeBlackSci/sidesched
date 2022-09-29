@@ -192,6 +192,7 @@ class Scheduler:
     def _valid_options(
         self, timeslot: Dict[str, List], side: Side, options: Sequence
     ) -> Set[str]:
+        """Set of valid spots to allocate side to. """
         selection = set(options)
         for feature in self.feature_priority:
             scores = self._feature_func_dict[feature](timeslot, side, self.side_decider)
