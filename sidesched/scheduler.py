@@ -219,13 +219,10 @@ class Scheduler:
 
         while prio_sides:
             side = prio_sides.pop(0)
-            discounted = set()
-            selected = spots
-            for feature in self.feature_priority:
-                scores = self._feature_func_dict[feature](
-                    timeslot, side, self.side_decider
-                )
-
-                # discounted.update(spot for spot, val in scores.items() if val != min(scores.values()))
-                # if len(discounted) == len(spots):
-                #     discounted = []
+            selection = self._valid_options(timeslot, side, spots)
+            allocation = choice(list(selection))
+            self._assign_side(timeslot, side, allocation)
+        
+        
+        
+        
