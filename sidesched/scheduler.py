@@ -20,8 +20,8 @@ class Scheduler:
             "side": self._get_freq_side,
         }
         self.side_priority: str = "both"  # Options ["both", "side", "spot"]
-        # Future:
-        #   mode: priotiy vs score (needs score modifiers?)
+        # TODO:
+        #   Mode: priotiy vs score 
 
     def _fetch_timeslot(self, time: Optional[int] = None) -> Dict[str, List]:
         """Fetch timeslot for given time from Event.
@@ -222,6 +222,13 @@ class Scheduler:
             selection = self._valid_options(timeslot, side, spots)
             allocation = choice(list(selection))
             self._assign_side(timeslot, side, allocation)
+            
+        self.event.update_freqs()
+        self.cur_time = self.cur_time + 1
+    
+    def schedule(self) -> None:
+        while self.cur_time < self.event.slots:
+            self._schedule_next()
         
         
         

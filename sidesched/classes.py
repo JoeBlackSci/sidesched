@@ -92,4 +92,4 @@ class Event:
     def update_freqs(self) -> None:
         """Update frequency metrics."""
         self._update_freq_side()
-        self._update_freq_spot
+        self._update_freq_spot()
