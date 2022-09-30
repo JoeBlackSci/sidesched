@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from random import choice
 from typing import Any, Callable, Dict, List, Optional, Set, Tuple, cast, Sequence
+import logging as log
 
 import pandas as pd
 
@@ -22,6 +23,7 @@ class Scheduler:
         self.side_priority: str = "both"  # Options ["both", "side", "spot"]
         # TODO:
         #   Mode: priotiy vs score 
+        log.info("Scheduler Initialised")
 
     def _fetch_timeslot(self, time: Optional[int] = None) -> Dict[str, List]:
         """Fetch timeslot for given time from Event.
@@ -187,7 +189,7 @@ class Scheduler:
                 )
             )
         score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
-        return sorted(score_dict, key=lambda side: score_dict[side], reverse=True)
+        return sorted(score_dict, key=lambda side: score_dict[side])
 
     def _valid_options(
         self, timeslot: Dict[str, List], side: Side, options: Sequence
@@ -215,6 +217,7 @@ class Scheduler:
         timeslot[allocation].append(side)
 
     def _schedule_next(self) -> None:
+        log.info("Schedule Next")
         timeslot = self._fetch_timeslot()
         prio_sides = self._prioritise_sides()
         spots = self.event.spots
@@ -229,8 +232,10 @@ class Scheduler:
         self.cur_time = self.cur_time + 1
     
     def schedule(self) -> None:
+        log.info("Scheduling Begin")
         while self.cur_time < self.event.slots:
             self._schedule_next()
+        log.info("Scheduling End")
         
         
         
