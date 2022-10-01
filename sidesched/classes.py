@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import List, Dict
 import pandas as pd
 import numpy as np
+import logging as log
 
 
 @dataclass(frozen=True, order=True)
@@ -56,6 +57,7 @@ class Event:
         return self.timetable[time]
     
     def _update_freq_side(self) -> None:
+        log.info("Updating side frequency")
         _freq_side: pd.DataFrame = pd.DataFrame(
             np.zeros([len(self.sides)] * 2, dtype="int"),
             index=self.sides,
@@ -74,6 +76,7 @@ class Event:
             
     
     def _update_freq_spot(self) -> None:
+        log.info("Updating spot frequency")
         _freq_spot: pd.DataFrame = pd.DataFrame(
             np.zeros((len(self.sides), len(self.spots)), dtype="int"),
             index=self.sides,
