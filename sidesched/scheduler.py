@@ -1,20 +1,21 @@
+import logging as log
 from dataclasses import dataclass, field
 from random import choice
-from typing import Any, Callable, Dict, List, Optional, Set, Tuple, cast, Sequence
-import logging as log
+from typing import (Any, Callable, Dict, List, Optional, Sequence, Set, Tuple)
 
 import pandas as pd
 
 from sidesched.classes import Event, Side
 
 
-@dataclass
 class Scheduler:
+    """_summary_
+    """
     def __init__(self, event: Event) -> None:
         self.event: Event = event
         self.cur_time: int = 0
         self.side_decider: Callable = min  # Suggested: [min, sum]
-        self.feature_priority: List[str] = ["load", "spot", "side"]
+        self.feature_priority: List[str] = ["side", "spot", "load"]
         self._feature_func_dict: Dict[str, Callable] = {
             "load": self._get_load,
             "spot": self._get_freq_spot,
@@ -38,6 +39,7 @@ class Scheduler:
         Dict[str, List]
             The timetable of sides at given time in format: {spot: [sides]}.
         """
+        log.info(f"fetching timeslot {time}")
         if not time:
             time = self.cur_time
         return self.event.get_timeslot(time)
