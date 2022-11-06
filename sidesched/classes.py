@@ -13,7 +13,7 @@ class Side:
     size: int = 1
     
     def __repr__(self) -> str:
-        return  self.name.__repr__()
+        return  self.name
 
 
 @dataclass
