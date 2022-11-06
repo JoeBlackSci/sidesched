@@ -4,12 +4,16 @@ import pandas as pd
 import numpy as np
 import logging as log
 
+print(["a"].__repr__())
 
 @dataclass(frozen=True, order=True)
 class Side:
     """Side Class, represents agents."""
     name: str
     size: int = 1
+    
+    def __repr__(self) -> str:
+        return  self.name.__repr__()
 
 
 @dataclass
