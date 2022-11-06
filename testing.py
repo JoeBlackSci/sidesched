@@ -14,37 +14,11 @@ sizes = [1, 1, 1, 2, 1, 1]
 sides = [Side(name, size) for name, size in zip(names, sizes)]
 
 event = Event("bromyard", spots, sides, 3)
-
 schedule = Scheduler(event)
-schedule.side_priority = "side"
+schedule.side_priority = "both"
 
-out = schedule._prioritise_sides()
-pprint(out)
-out = schedule.side_metrics()
-pprint(out)
-print()
+schedule.schedule()
 
-schedule._schedule_next()
-out = schedule._prioritise_sides()
-pprint(out)
-out = schedule.side_metrics()
-pprint(out)
-print()
-
-schedule._schedule_next()
-out = schedule._prioritise_sides()
-pprint(out)
-out = schedule.side_metrics()
-pprint(out)
-print()
-
-schedule._schedule_next()
-out = schedule._prioritise_sides()
-pprint(out)
-out = schedule.side_metrics()
-pprint(out)
-print()
-
-
+print('\n')
 print(event.freq_side)
 print(event.freq_spot)

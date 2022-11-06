@@ -1,4 +1,5 @@
 import logging as log
+import pprint as pp
 from dataclasses import dataclass, field
 from random import choice
 from typing import (Any, Callable, Dict, List, Optional, Sequence, Set, Tuple)
@@ -39,9 +40,10 @@ class Scheduler:
         Dict[str, List]
             The timetable of sides at given time in format: {spot: [sides]}.
         """
-        log.info(f"fetching timeslot {time}")
+        
         if not time:
             time = self.cur_time
+        log.info(f"fetching timeslot {time}")
         return self.event.get_timeslot(time)
 
     def _get_load(self, timeslot: Dict[str, List], *_, **__) -> Dict[str, int]:
@@ -191,7 +193,8 @@ class Scheduler:
                 )
             )
         score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
-        return sorted(score_dict, key=lambda side: score_dict[side])
+        log.debug(f"prio scores:\n{pp.pformat(score_dict)}\n")
+        return sorted(score_dict.values(), key=lambda side: score_dict[side])
 
     def _valid_options(
         self, timeslot: Dict[str, List], side: Side, options: Sequence
@@ -238,7 +241,4 @@ class Scheduler:
         while self.cur_time < self.event.slots:
             self._schedule_next()
         log.info("Scheduling End")
-        
-        
-        
         
