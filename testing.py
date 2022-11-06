@@ -15,7 +15,7 @@ sides = [Side(name, size) for name, size in zip(names, sizes)]
 
 event = Event("bromyard", spots, sides, 3)
 schedule = Scheduler(event)
-schedule.side_priority = "both"
+schedule.side_priority = "side"
 
 schedule.schedule()
 

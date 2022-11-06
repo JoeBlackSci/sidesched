@@ -193,8 +193,10 @@ class Scheduler:
                 )
             )
         score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
+        score_list = sorted(score_dict, key=lambda side: score_dict[side])
         log.debug(f"prio scores:\n{pp.pformat(score_dict)}\n")
-        return sorted(score_dict.values(), key=lambda side: score_dict[side])
+        log.debug(f"prio order:\n{pp.pformat(score_list)}")
+        return sorted(score_dict, key=lambda side: score_dict[side])
 
     def _valid_options(
         self, timeslot: Dict[str, List], side: Side, options: Sequence
