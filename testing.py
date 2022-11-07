@@ -16,13 +16,11 @@ sides = [Side(name, size) for name, size in zip(names, sizes)]
 event = Event("bromyard", spots, sides, 5)
 schedule = Scheduler(event)
 schedule.side_priority = "side"
-schedule.side_decider = sum
-schedule.feature_priority = ["side", "load", "spot"]
+schedule.side_decider = min
+schedule.feature_priority = ["load", "side", "spot"]
 
 schedule.schedule()
 
-print('\n')
 print(event.freq_side)
-print(event.freq_spot)
 print("\n")
-print(event.freq_spot.__repr__())
+print(event.freq_spot)

@@ -10,76 +10,76 @@ DEBUG:root:prio order:
 
 DEBUG:root:side: SB&MRTD
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'chestnut', 'royal oak', 'broomfeild'}
-DEBUG:root:SB&MRTD assigned to royal oak
+DEBUG:root:selection: {'broomfeild', 'royal oak', 'chestnut'}
+DEBUG:root:SB&MRTD assigned to broomfeild
 
 DEBUG:root:side: CINEWOOD
 
+DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 3}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'chestnut', 'broomfeild'}
+DEBUG:root:selection: {'royal oak', 'chestnut'}
 DEBUG:root:cinewood assigned to chestnut
 
 DEBUG:root:side: EARLSDON
 
+DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 2, 'royal oak': 0}
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 3}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'broomfeild'}
-DEBUG:root:earlsdon assigned to broomfeild
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:earlsdon assigned to royal oak
 
 DEBUG:root:side: JOCKEY
 
+DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 2, 'royal oak': 2}
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 2, 'royal oak': 3}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'chestnut', 'broomfeild'}
-DEBUG:root:jockey assigned to broomfeild
+DEBUG:root:selection: {'royal oak', 'chestnut'}
+DEBUG:root:jockey assigned to chestnut
 
 DEBUG:root:side: SADDLEWORTH
 
+DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 4, 'royal oak': 2}
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 2, 'royal oak': 3}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'chestnut'}
-DEBUG:root:saddleworth assigned to chestnut
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:saddleworth assigned to royal oak
 
 DEBUG:root:side: SHAKESPERE
 
+DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 4, 'royal oak': 4}
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 4, 'royal oak': 3}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'royal oak'}
-DEBUG:root:shakespere assigned to royal oak
+DEBUG:root:selection: {'broomfeild'}
+DEBUG:root:shakespere assigned to broomfeild
 
 INFO:root:Updating side frequency
 INFO:root:Updating spot frequency
 DEBUG:root:side frequency:
              SB&MRTD  cinewood  earlsdon  jockey  saddleworth  shakespere
 SB&MRTD            1         0         0       0            0           1
-cinewood           0         1         0       0            1           0
-earlsdon           0         0         1       1            0           0
-jockey             0         0         1       1            0           0
-saddleworth        0         1         0       0            1           0
+cinewood           0         1         0       1            0           0
+earlsdon           0         0         1       0            1           0
+jockey             0         1         0       1            0           0
+saddleworth        0         0         1       0            1           0
 shakespere         1         0         0       0            0           1
 
 DEBUG:root:spot frequency:
              broomfeild  chestnut  royal oak
-SB&MRTD               0         0          1
+SB&MRTD               1         0          0
 cinewood              0         1          0
-earlsdon              1         0          0
-jockey                1         0          0
-saddleworth           0         1          0
-shakespere            0         0          1
+earlsdon              0         0          1
+jockey                0         1          0
+saddleworth           0         0          1
+shakespere            1         0          0
 
 DEBUG:root:timeslot:
-{'broomfeild': [earlsdon, jockey],
- 'chestnut': [cinewood, saddleworth],
- 'royal oak': [SB&MRTD, shakespere]}
+{'broomfeild': [SB&MRTD, shakespere],
+ 'chestnut': [cinewood, jockey],
+ 'royal oak': [earlsdon, saddleworth]}
 
 INFO:root:Schedule Next
 INFO:root:fetching timeslot 1
@@ -91,318 +91,318 @@ DEBUG:root:prio order:
 
 DEBUG:root:side: SB&MRTD
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:selection: {'chestnut', 'broomfeild'}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:selection: {'royal oak', 'chestnut'}
 DEBUG:root:SB&MRTD assigned to chestnut
 
 DEBUG:root:side: CINEWOOD
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 3, 'royal oak': 0}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
-DEBUG:root:selection: {'royal oak', 'broomfeild'}
+DEBUG:root:selection: {'broomfeild', 'royal oak'}
 DEBUG:root:cinewood assigned to royal oak
 
 DEBUG:root:side: EARLSDON
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 3, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
 DEBUG:root:selection: {'broomfeild'}
 DEBUG:root:earlsdon assigned to broomfeild
 
 DEBUG:root:side: JOCKEY
 
-DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 3, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'royal oak'}
-DEBUG:root:jockey assigned to royal oak
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
+DEBUG:root:selection: {'broomfeild'}
+DEBUG:root:jockey assigned to broomfeild
 
 DEBUG:root:side: SADDLEWORTH
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 3, 'royal oak': 4}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
-DEBUG:root:selection: {'broomfeild'}
-DEBUG:root:saddleworth assigned to broomfeild
+DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 3, 'royal oak': 2}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:saddleworth assigned to royal oak
 
 DEBUG:root:side: SHAKESPERE
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 3, 'royal oak': 4}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:selection: {'broomfeild'}
-DEBUG:root:shakespere assigned to broomfeild
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:selection: {'chestnut'}
+DEBUG:root:shakespere assigned to chestnut
 
 INFO:root:Updating side frequency
 INFO:root:Updating spot frequency
 DEBUG:root:side frequency:
              SB&MRTD  cinewood  earlsdon  jockey  saddleworth  shakespere
-SB&MRTD            2         0         0       0            0           1
+SB&MRTD            2         0         0       0            0           2
 cinewood           0         2         0       1            1           0
-earlsdon           0         0         2       1            1           1
+earlsdon           0         0         2       1            1           0
 jockey             0         1         1       2            0           0
-saddleworth        0         1         1       0            2           1
-shakespere         1         0         1       0            1           2
+saddleworth        0         1         1       0            2           0
+shakespere         2         0         0       0            0           2
 
 DEBUG:root:spot frequency:
              broomfeild  chestnut  royal oak
-SB&MRTD               0         1          1
+SB&MRTD               1         1          0
 cinewood              0         1          1
-earlsdon              2         0          0
-jockey                1         0          1
-saddleworth           1         1          0
-shakespere            1         0          1
+earlsdon              1         0          1
+jockey                1         1          0
+saddleworth           0         0          2
+shakespere            1         1          0
 
 DEBUG:root:timeslot:
-{'broomfeild': [earlsdon, saddleworth, shakespere],
- 'chestnut': [SB&MRTD],
- 'royal oak': [cinewood, jockey]}
+{'broomfeild': [earlsdon, jockey],
+ 'chestnut': [SB&MRTD, shakespere],
+ 'royal oak': [cinewood, saddleworth]}
 
 INFO:root:Schedule Next
 INFO:root:fetching timeslot 2
 DEBUG:root:prio scores:
-{SB&MRTD: 2, cinewood: 3, earlsdon: 4, jockey: 3, saddleworth: 4, shakespere: 4}
+{SB&MRTD: 2, cinewood: 3, earlsdon: 3, jockey: 3, saddleworth: 3, shakespere: 2}
 
 DEBUG:root:prio order:
-[SB&MRTD, cinewood, jockey, earlsdon, saddleworth, shakespere]
+[SB&MRTD, shakespere, cinewood, earlsdon, jockey, saddleworth]
 
 DEBUG:root:side: SB&MRTD
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 1}
-DEBUG:root:selection: {'broomfeild'}
-DEBUG:root:SB&MRTD assigned to broomfeild
-
-DEBUG:root:side: CINEWOOD
-
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 1}
-DEBUG:root:selection: {'royal oak', 'chestnut'}
-DEBUG:root:cinewood assigned to royal oak
-
-DEBUG:root:side: JOCKEY
-
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 0, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:selection: {'chestnut'}
-DEBUG:root:jockey assigned to chestnut
-
-DEBUG:root:side: EARLSDON
-
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 2, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:selection: {'royal oak'}
-DEBUG:root:earlsdon assigned to royal oak
-
-DEBUG:root:side: SADDLEWORTH
-
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 2}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 2, 'royal oak': 4}
 DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 0}
-DEBUG:root:selection: {'chestnut'}
-DEBUG:root:saddleworth assigned to chestnut
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:SB&MRTD assigned to royal oak
 
 DEBUG:root:side: SHAKESPERE
 
-DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 1}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 4, 'royal oak': 4}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 1}
+DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 2}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 0}
+DEBUG:root:selection: {'broomfeild', 'chestnut'}
+DEBUG:root:shakespere assigned to chestnut
+
+DEBUG:root:side: CINEWOOD
+
+DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 1}
 DEBUG:root:selection: {'broomfeild'}
-DEBUG:root:shakespere assigned to broomfeild
+DEBUG:root:cinewood assigned to broomfeild
+
+DEBUG:root:side: EARLSDON
+
+DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 2, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 1}
+DEBUG:root:selection: {'chestnut'}
+DEBUG:root:earlsdon assigned to chestnut
+
+DEBUG:root:side: JOCKEY
+
+DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 4, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 0}
+DEBUG:root:selection: {'broomfeild'}
+DEBUG:root:jockey assigned to broomfeild
+
+DEBUG:root:side: SADDLEWORTH
+
+DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 4, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 2}
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:saddleworth assigned to royal oak
 
 INFO:root:Updating side frequency
 INFO:root:Updating spot frequency
 DEBUG:root:side frequency:
              SB&MRTD  cinewood  earlsdon  jockey  saddleworth  shakespere
-SB&MRTD            3         0         0       0            0           2
-cinewood           0         3         1       1            1           0
-earlsdon           0         1         3       1            1           1
-jockey             0         1         1       3            1           0
-saddleworth        0         1         1       1            3           1
-shakespere         2         0         1       0            1           3
+SB&MRTD            3         0         0       0            1           2
+cinewood           0         3         0       2            1           0
+earlsdon           0         0         3       1            1           1
+jockey             0         2         1       3            0           0
+saddleworth        1         1         1       0            3           0
+shakespere         2         0         1       0            0           3
 
 DEBUG:root:spot frequency:
              broomfeild  chestnut  royal oak
 SB&MRTD               1         1          1
-cinewood              0         1          2
-earlsdon              2         0          1
-jockey                1         1          1
-saddleworth           1         2          0
-shakespere            2         0          1
+cinewood              1         1          1
+earlsdon              1         1          1
+jockey                2         1          0
+saddleworth           0         0          3
+shakespere            1         2          0
 
 DEBUG:root:timeslot:
-{'broomfeild': [SB&MRTD, shakespere],
- 'chestnut': [jockey, saddleworth],
- 'royal oak': [cinewood, earlsdon]}
+{'broomfeild': [cinewood, jockey],
+ 'chestnut': [shakespere, earlsdon],
+ 'royal oak': [SB&MRTD, saddleworth]}
 
 INFO:root:Schedule Next
 INFO:root:fetching timeslot 3
 DEBUG:root:prio scores:
-{SB&MRTD: 2, cinewood: 4, earlsdon: 5, jockey: 4, saddleworth: 5, shakespere: 4}
+{SB&MRTD: 3, cinewood: 3, earlsdon: 4, jockey: 3, saddleworth: 4, shakespere: 3}
 
 DEBUG:root:prio order:
 [SB&MRTD, cinewood, jockey, shakespere, earlsdon, saddleworth]
 
 DEBUG:root:side: SB&MRTD
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 1}
-DEBUG:root:selection: {'chestnut', 'royal oak', 'broomfeild'}
-DEBUG:root:SB&MRTD assigned to broomfeild
+DEBUG:root:selection: {'broomfeild', 'royal oak', 'chestnut'}
+DEBUG:root:SB&MRTD assigned to chestnut
 
 DEBUG:root:side: CINEWOOD
 
+DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 3, 'royal oak': 0}
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 2}
-DEBUG:root:selection: {'royal oak', 'chestnut'}
-DEBUG:root:cinewood assigned to chestnut
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 1}
+DEBUG:root:selection: {'broomfeild', 'royal oak'}
+DEBUG:root:cinewood assigned to broomfeild
 
 DEBUG:root:side: JOCKEY
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 2, 'royal oak': 0}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 1}
+DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 3, 'royal oak': 0}
+DEBUG:root:side scores: {'broomfeild': 2, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 0}
 DEBUG:root:selection: {'royal oak'}
 DEBUG:root:jockey assigned to royal oak
 
 DEBUG:root:side: SHAKESPERE
 
-DEBUG:root:side scores: {'broomfeild': 2, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 2, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:selection: {'chestnut'}
-DEBUG:root:shakespere assigned to chestnut
+DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 3, 'royal oak': 2}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 2, 'royal oak': 0}
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:shakespere assigned to royal oak
 
 DEBUG:root:side: EARLSDON
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 1}
-DEBUG:root:load scores: {'broomfeild': 3, 'chestnut': 4, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 0, 'royal oak': 1}
+DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 3, 'royal oak': 4}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 1}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 1}
 DEBUG:root:selection: {'broomfeild'}
 DEBUG:root:earlsdon assigned to broomfeild
 
 DEBUG:root:side: SADDLEWORTH
 
-DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 2, 'royal oak': 1}
-DEBUG:root:load scores: {'broomfeild': 5, 'chestnut': 4, 'royal oak': 2}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 2, 'royal oak': 0}
-DEBUG:root:selection: {'royal oak'}
-DEBUG:root:saddleworth assigned to royal oak
+DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 3, 'royal oak': 4}
+DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 3}
+DEBUG:root:selection: {'chestnut'}
+DEBUG:root:saddleworth assigned to chestnut
 
 INFO:root:Updating side frequency
 INFO:root:Updating spot frequency
 DEBUG:root:side frequency:
              SB&MRTD  cinewood  earlsdon  jockey  saddleworth  shakespere
-SB&MRTD            4         0         1       0            0           2
-cinewood           0         4         1       1            1           1
-earlsdon           1         1         4       1            1           1
-jockey             0         1         1       4            2           0
-saddleworth        0         1         1       2            4           1
-shakespere         2         1         1       0            1           4
+SB&MRTD            4         0         0       0            2           2
+cinewood           0         4         1       2            1           0
+earlsdon           0         1         4       1            1           1
+jockey             0         2         1       4            0           1
+saddleworth        2         1         1       0            4           0
+shakespere         2         0         1       1            0           4
 
 DEBUG:root:spot frequency:
              broomfeild  chestnut  royal oak
-SB&MRTD               2         1          1
-cinewood              0         2          2
-earlsdon              3         0          1
-jockey                1         1          2
-saddleworth           1         2          1
-shakespere            2         1          1
+SB&MRTD               1         2          1
+cinewood              2         1          1
+earlsdon              2         1          1
+jockey                2         1          1
+saddleworth           0         1          3
+shakespere            1         2          1
 
 DEBUG:root:timeslot:
-{'broomfeild': [SB&MRTD, earlsdon],
- 'chestnut': [cinewood, shakespere],
- 'royal oak': [jockey, saddleworth]}
+{'broomfeild': [cinewood, earlsdon],
+ 'chestnut': [SB&MRTD, saddleworth],
+ 'royal oak': [jockey, shakespere]}
 
 INFO:root:Schedule Next
 INFO:root:fetching timeslot 4
 DEBUG:root:prio scores:
-{SB&MRTD: 3, cinewood: 5, earlsdon: 6, jockey: 4, saddleworth: 5, shakespere: 5}
+{SB&MRTD: 3, cinewood: 4, earlsdon: 5, jockey: 4, saddleworth: 4, shakespere: 4}
 
 DEBUG:root:prio order:
-[SB&MRTD, jockey, cinewood, saddleworth, shakespere, earlsdon]
+[SB&MRTD, cinewood, jockey, saddleworth, shakespere, earlsdon]
 
 DEBUG:root:side: SB&MRTD
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 1}
-DEBUG:root:selection: {'chestnut', 'royal oak'}
-DEBUG:root:SB&MRTD assigned to royal oak
-
-DEBUG:root:side: JOCKEY
-
 DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 3}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 2}
-DEBUG:root:selection: {'chestnut', 'broomfeild'}
-DEBUG:root:jockey assigned to broomfeild
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 2, 'royal oak': 1}
+DEBUG:root:selection: {'broomfeild', 'royal oak'}
+DEBUG:root:SB&MRTD assigned to royal oak
 
 DEBUG:root:side: CINEWOOD
 
-DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 0, 'royal oak': 0}
-DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 0, 'royal oak': 3}
-DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 2}
+DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 1}
 DEBUG:root:selection: {'chestnut'}
 DEBUG:root:cinewood assigned to chestnut
 
+DEBUG:root:side: JOCKEY
+
+DEBUG:root:load scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 2, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 1}
+DEBUG:root:selection: {'broomfeild'}
+DEBUG:root:jockey assigned to broomfeild
+
 DEBUG:root:side: SADDLEWORTH
 
-DEBUG:root:side scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 0}
 DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 2, 'royal oak': 3}
-DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 2, 'royal oak': 1}
-DEBUG:root:selection: {'royal oak'}
-DEBUG:root:saddleworth assigned to royal oak
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 2}
+DEBUG:root:spot scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 3}
+DEBUG:root:selection: {'broomfeild'}
+DEBUG:root:saddleworth assigned to broomfeild
 
 DEBUG:root:side: SHAKESPERE
 
-DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 1, 'royal oak': 3}
-DEBUG:root:load scores: {'broomfeild': 2, 'chestnut': 2, 'royal oak': 5}
-DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 1}
-DEBUG:root:selection: {'broomfeild'}
-DEBUG:root:shakespere assigned to broomfeild
+DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 2, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 0, 'chestnut': 0, 'royal oak': 2}
+DEBUG:root:spot scores: {'broomfeild': 1, 'chestnut': 2, 'royal oak': 1}
+DEBUG:root:selection: {'chestnut'}
+DEBUG:root:shakespere assigned to chestnut
 
 DEBUG:root:side: EARLSDON
 
-DEBUG:root:side scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 2}
-DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 2, 'royal oak': 5}
-DEBUG:root:spot scores: {'broomfeild': 3, 'chestnut': 0, 'royal oak': 1}
-DEBUG:root:selection: {'chestnut'}
-DEBUG:root:earlsdon assigned to chestnut
+DEBUG:root:load scores: {'broomfeild': 4, 'chestnut': 4, 'royal oak': 3}
+DEBUG:root:side scores: {'broomfeild': 1, 'chestnut': 1, 'royal oak': 0}
+DEBUG:root:spot scores: {'broomfeild': 2, 'chestnut': 1, 'royal oak': 1}
+DEBUG:root:selection: {'royal oak'}
+DEBUG:root:earlsdon assigned to royal oak
 
 INFO:root:Updating side frequency
 INFO:root:Updating spot frequency
 DEBUG:root:side frequency:
              SB&MRTD  cinewood  earlsdon  jockey  saddleworth  shakespere
-SB&MRTD            5         0         1       0            1           2
-cinewood           0         5         2       1            1           1
-earlsdon           1         2         5       1            1           1
-jockey             0         1         1       5            2           1
-saddleworth        1         1         1       2            5           1
-shakespere         2         1         1       1            1           5
+SB&MRTD            5         0         1       0            2           2
+cinewood           0         5         1       2            1           1
+earlsdon           1         1         5       1            1           1
+jockey             0         2         1       5            1           1
+saddleworth        2         1         1       1            5           0
+shakespere         2         1         1       1            0           5
 
 DEBUG:root:spot frequency:
              broomfeild  chestnut  royal oak
-SB&MRTD               2         1          2
-cinewood              0         3          2
-earlsdon              3         1          1
-jockey                2         1          2
-saddleworth           1         2          2
-shakespere            3         1          1
+SB&MRTD               1         2          2
+cinewood              2         2          1
+earlsdon              2         1          2
+jockey                3         1          1
+saddleworth           1         1          3
+shakespere            1         3          1
 
 DEBUG:root:timeslot:
-{'broomfeild': [jockey, shakespere],
- 'chestnut': [cinewood, earlsdon],
- 'royal oak': [SB&MRTD, saddleworth]}
+{'broomfeild': [jockey, saddleworth],
+ 'chestnut': [cinewood, shakespere],
+ 'royal oak': [SB&MRTD, earlsdon]}
 
 INFO:root:Scheduling End
