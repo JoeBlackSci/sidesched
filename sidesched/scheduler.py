@@ -1,13 +1,16 @@
 import logging as log
 import pprint as pp
 from dataclasses import dataclass, field
-from random import choice
+from random import choice, seed
 from typing import (Any, Callable, Dict, List, Optional, Sequence, Set, Tuple)
 
 import pandas as pd
 
 from sidesched.classes import Event, Side
 
+# TODO:
+#   Mode: priotiy vs score 
+#   Seed
 
 class Scheduler:
     """_summary_
@@ -23,8 +26,7 @@ class Scheduler:
             "side": self._get_freq_side,
         }
         self.side_priority: str = "both"  # Options ["both", "side", "spot"]
-        # TODO:
-        #   Mode: priotiy vs score 
+        
         log.info("Scheduler Initialised")
 
     def _fetch_timeslot(self, time: Optional[int] = None) -> Dict[str, List]:
@@ -195,8 +197,9 @@ class Scheduler:
         score_dict = {side: score for side, score in zip(metrics["sides"], scores)}
         score_list = sorted(score_dict, key=lambda side: score_dict[side])
         log.debug(f"prio scores:\n{pp.pformat(score_dict)}\n")
-        log.debug(f"prio order:\n{pp.pformat(score_list)}")
+        log.debug(f"prio order:\n{pp.pformat(score_list)}\n")
         return sorted(score_dict, key=lambda side: score_dict[side])
+
 
     def _valid_options(
         self, timeslot: Dict[str, List], side: Side, options: Sequence
@@ -205,6 +208,8 @@ class Scheduler:
         selection = set(options)
         for feature in self.feature_priority:
             scores = self._feature_func_dict[feature](timeslot, side, self.side_decider)
+            
+            log.debug(f"{feature} scores: {scores}")
 
             prev_selection = selection.copy()
 
@@ -215,7 +220,9 @@ class Scheduler:
             if not selection:
                 selection = prev_selection.copy()
         
+        log.debug(f"selection: {selection}")
         return selection
+
 
     def _assign_side(
         self, timeslot: Dict[str, List], side: Side, allocation: str
@@ -223,24 +230,35 @@ class Scheduler:
         """Assign side to spot at timeslot."""
         timeslot[allocation].append(side)
 
+
     def _schedule_next(self) -> None:
         log.info("Schedule Next")
+        
         timeslot = self._fetch_timeslot()
         prio_sides = self._prioritise_sides()
         spots = self.event.spots
 
         while prio_sides:
             side = prio_sides.pop(0)
+            log.debug(f"side: {side.name.upper()}\n")
+            
             selection = self._valid_options(timeslot, side, spots)
             allocation = choice(list(selection))
             self._assign_side(timeslot, side, allocation)
+            log.debug(f"{side} assigned to {allocation}\n")
             
         self.event.update_freqs()
         self.cur_time = self.cur_time + 1
+        
+        log.debug(f"side frequency:\n{self.event.freq_side}\n")
+        log.debug(f"spot frequency:\n{self.event.freq_spot}\n")
+        log.debug(f"timeslot:\n{pp.pformat(timeslot)}\n")
     
     def schedule(self) -> None:
         log.info("Scheduling Begin")
+        
         while self.cur_time < self.event.slots:
             self._schedule_next()
+            
         log.info("Scheduling End")
         
