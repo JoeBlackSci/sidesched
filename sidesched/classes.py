@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import logging as log
 
-print(["a"].__repr__())
 
 @dataclass(frozen=True, order=True)
 class Side:
